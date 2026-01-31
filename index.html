@@ -12,14 +12,19 @@
 
   <style>
     :root {
-      --bg-light: #fafafa;
-      --bg-dark: #111;
-      --bg-muted: #f2f2f2;
-      --text-main: #111;
-      --text-sub: #555;
-      --text-light: #eee;
-      --line: #e5e5e5;
-    }
+        --bg-hero: #f7f7f7;
+        --bg-light: #fcfcfc;
+        --bg-muted: #f0f0f0;
+        --bg-soft: #eaeaea;
+        --bg-dark: #111;
+
+        --text-main: #111;
+        --text-sub: #555;
+        --text-light: #eee;
+
+        --line: rgba(0, 0, 0, 0.06);
+}
+
 
     * {
       box-sizing: border-box;
@@ -41,11 +46,12 @@
       scroll-snap-align: start;
       display: flex;
       align-items: center;
+      box-shadow: inset 0 -1px 0 var(--line);
     }
 
     .container {
       max-width: 960px;
-      padding: 120px 24px;
+      padding: 140px 24px;
       margin: 0 auto;
       width: 100%;
     }
@@ -75,8 +81,8 @@
     /* ---------- Hero ---------- */
     .hero {
       background:
-        linear-gradient(rgba(250,250,250,0.85), rgba(250,250,250,0.85)),
-        url("images/hero.jpg");
+      linear-gradient(rgba(247,247,247,0.88), rgba(247,247,247,0.88)),
+      url("images/hero.jpg");
       background-size: cover;
       background-position: center;
     }
@@ -119,6 +125,12 @@
       font-size: 16px;
       color: var(--text-sub);
       max-width: 520px;
+    }
+
+    /* ---------- About ---------- */
+
+    .about:nth-of-type(2) {
+        background: var(--bg-soft);
     }
 
     /* ---------- Contact ---------- */
