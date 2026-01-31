@@ -5,80 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bowen Shi — Resume</title>
 
-  <!-- 字体 -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #fafafa;
+      --bg-light: #fafafa;
+      --bg-dark: #111;
+      --bg-muted: #f2f2f2;
       --text-main: #111;
       --text-sub: #555;
+      --text-light: #eee;
       --line: #e5e5e5;
-      --accent: #000;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-snap-type: y mandatory;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
       line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    section {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
     }
 
     .container {
-      max-width: 880px;
-      margin: 0 auto;
+      max-width: 960px;
       padding: 120px 24px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    /* ---------- Hero ---------- */
-    .hero h1 {
-      font-size: 48px;
+    h1 {
+      font-size: 56px;
       font-weight: 500;
       letter-spacing: -0.02em;
       margin-bottom: 24px;
     }
 
-    .hero p {
-      max-width: 640px;
-      font-size: 18px;
-      color: var(--text-sub);
-    }
-
-    /* ---------- Section ---------- */
-    section {
-      margin-top: 120px;
-    }
-
-    section h2 {
+    h2 {
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 32px;
       color: var(--text-sub);
+      margin-bottom: 32px;
     }
 
-    .section-content {
-      max-width: 720px;
+    p {
+      font-size: 18px;
+      color: var(--text-sub);
+      max-width: 640px;
     }
 
-    /* ---------- Text blocks ---------- */
-    .text-block {
-      margin-bottom: 24px;
-      font-size: 16px;
-      color: var(--text-main);
+    /* ---------- Hero ---------- */
+    .hero {
+      background:
+        linear-gradient(rgba(250,250,250,0.85), rgba(250,250,250,0.85)),
+        url("images/hero.jpg");
+      background-size: cover;
+      background-position: center;
     }
 
-    /* ---------- Project ---------- */
+    /* ---------- About ---------- */
+    .about {
+      background: var(--bg-light);
+    }
+
+    /* ---------- Projects ---------- */
+    .projects {
+      background: var(--bg-muted);
+    }
+
     .project {
-      padding: 24px 0;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 32px;
+      padding: 32px 0;
       border-top: 1px solid var(--line);
     }
 
@@ -86,117 +103,178 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .project img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
     .project-title {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 500;
       margin-bottom: 8px;
     }
 
     .project-desc {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--text-sub);
-      max-width: 600px;
+      max-width: 520px;
     }
 
-    /* ---------- Footer ---------- */
-    footer {
-      margin-top: 160px;
-      font-size: 14px;
-      color: var(--text-sub);
+    /* ---------- Contact ---------- */
+    .contact {
+      background: var(--bg-dark);
+      color: var(--text-light);
     }
 
-    footer a {
-      color: var(--text-main);
+    .contact h2,
+    .contact p {
+      color: var(--text-light);
+    }
+
+    a {
+      color: inherit;
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    footer a:hover {
-      border-bottom: 1px solid var(--text-main);
+      border-bottom: 1px solid currentColor;
     }
 
     /* ---------- Responsive ---------- */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 36px;
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
       }
 
-      section {
-        margin-top: 80px;
+      .project {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
 
-    <!-- Hero -->
-    <section class="hero">
-      <h1>Bowen Shi</h1>
-      <p>
-        I’m a builder who cares about clarity, systems, and creating things that feel calm and intentional.
-        Currently exploring the intersection of technology, design, and human experience.
-      </p>
-    </section>
+  <!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Bowen Shi</h1>
+    <p>
+      I work at the intersection of machine learning, recommendation systems,
+      and applied research — building models that operate under real-world
+      constraints and scale.
+    </p>
+  </div>
+</section>
 
-    <!-- About -->
-    <section>
-      <h2>About</h2>
-      <div class="section-content">
-        <p class="text-block">
-          I enjoy working on problems where the solution isn’t just “more features,”
-          but better structure and better decisions.
-        </p>
-        <p class="text-block">
-          My background spans across different domains, which allows me to think in systems
-          rather than isolated tasks.
-        </p>
-      </div>
-    </section>
+<!-- About -->
+<section class="about">
+  <div class="container">
+    <h2>About</h2>
+    <p>
+      I’m currently pursuing an M.S. in Spatial Data Science at USC, with a background
+      in Software Engineering and applied machine learning.
+    </p>
+    <p>
+      My experience spans industry-scale recommendation systems and academic research,
+      where I focus on system-level thinking: how models behave over time, under latency
+      constraints, and with imperfect data.
+    </p>
+  </div>
+</section>
 
-    <!-- Projects -->
-    <section>
-      <h2>Selected Work</h2>
-      <div class="section-content">
+<!-- Experience -->
+<section class="projects">
+  <div class="container">
+    <h2>Selected Experience</h2>
 
-        <div class="project">
-          <div class="project-title">Personal Resume Website</div>
-          <div class="project-desc">
-            A minimalist personal website built with HTML, CSS, and GitHub Pages.
-            Designed to evolve over time rather than remain static.
-          </div>
+    <div class="project">
+      <img src="images/bytedance.jpg" alt="Douyin Recommendation System">
+      <div>
+        <div class="project-title">
+          Recommendation Algorithm Intern · ByteDance (Douyin)
         </div>
-
-        <div class="project">
-          <div class="project-title">Another Project</div>
-          <div class="project-desc">
-            Short description of what you built, why it matters, and what you learned.
-          </div>
+        <div class="project-desc">
+          Designed a multi-stage short-video recommendation pipeline
+          (recall → ranking → re-ranking) for Douyin’s real-time feed,
+          addressing cold start, interest drift, and content understanding.
+          <br/><br/>
+          Built hybrid recall with Faiss vector search and GNN-based graph expansion,
+          reducing cold-start exposure gaps by ~7% and improving recall hit rate by ~3.2%.
+          Shipped models with PyTorch and Spark pipelines, and validated improvements
+          through online A/B tests with ~4% CTR uplift under strict latency constraints.
         </div>
-
       </div>
-    </section>
+    </div>
 
-    <!-- Contact -->
-    <section>
-      <h2>Contact</h2>
-      <div class="section-content">
-        <p class="text-block">
-          The best way to reach me is via email.
-        </p>
+    <div class="project">
+      <img src="images/oxford.jpg" alt="Oxford Research">
+      <div>
+        <div class="project-title">
+          Research Program · University of Oxford
+        </div>
+        <div class="project-desc">
+          Built a fine-tuned transformer pipeline for sentiment and rating prediction
+          on 100k+ hotel reviews, improving accuracy from 86.2% to 90.8% and macro-F1
+          from 0.842 to 0.903.
+          <br/><br/>
+          Focused on calibration and evaluation reliability, reducing Expected
+          Calibration Error from 4.8% to 2.9%, and delivered a fully reproducible
+          analysis report.
+        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-      <p>
-        © 2026 Bowen Shi· 
-        <a href="ericshibowen@gmail.com">Email</a> · 
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      </p>
-    </footer>
+    <div class="project">
+      <img src="images/ml.jpg" alt="Machine Learning Program">
+      <div>
+        <div class="project-title">
+          Machine Learning Program · Duke Kunshan University
+        </div>
+        <div class="project-desc">
+          Implemented core ML algorithms from scratch in Python, including
+          linear/logistic regression, k-NN, and decision trees, and validated
+          implementations against scikit-learn.
+          <br/><br/>
+          Built end-to-end pipelines with preprocessing, cross-validation,
+          regularization, and principled model selection.
+        </div>
+      </div>
+    </div>
 
-  </main>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="about">
+  <div class="container">
+    <h2>Skills</h2>
+    <p>
+      <strong>Languages:</strong> Python, C/C++, Java, R, SQL, Bash · Linux · Git
+    </p>
+    <p>
+      <strong>Machine Learning:</strong> PyTorch, TensorFlow, scikit-learn, NumPy,
+      pandas, Matplotlib, Keras, spaCy
+    </p>
+    <p>
+      <strong>Languages:</strong> English, Chinese
+    </p>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>
+      I’m always open to conversations around machine learning systems,
+      research, and applied modeling.
+    </p>
+    <p>
+      <a href="mailto:ericshibowen@gmail.com">ericshibowen@gmail.com</a><br/>
+      <a href="https://github.com/eric-s-bw" target="_blank">GitHub</a>
+    </p>
+  </div>
+</section>
+
+
 </body>
 </html>
